@@ -46,6 +46,11 @@ project_root/
 |   |   ├── indexStyle.css
 |   |   ├── OnlpymntFrdDtcn.css
 │   │   └── result.css
+|   ├── js/
+│   │   ├── index.js
+│   │   ├── creditCardFraud.js
+│   │   ├── onlinePaymentFraud.js
+│   │   └── result.js
 │   ├── images/                
 │
 ├── templates/             # HTML templates
