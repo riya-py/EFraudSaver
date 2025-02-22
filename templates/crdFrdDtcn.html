@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="static/css/cdFrdDtc_Style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='cdFrdDtc_Style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit Card Fraud Detection</title>
@@ -12,8 +12,6 @@
     <nav>
         <ul>
             <li><a href="/index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
         </ul>
     </nav>
     <main>
@@ -21,7 +19,7 @@
 
             <h1 class="title">Credit Card Fraud Detection</h1>
 
-            <form class="inputContainer" action="">
+            <form class="inputContainer" action="{{ url_for('models', filename='credit_card_model.pkl') }}" method="POST">
 
                 <div class="input1 input">
                     <label for="TrnAmn" class="inputMSG">Transaction Amount:</label>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/indexStyle.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/indexStyle.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
@@ -10,8 +10,6 @@
     <nav>
         <ul>
             <li><a href="/index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Contact Us</a></li>
         </ul> 
     </nav>
     <main>
@@ -19,11 +17,11 @@
         <h1 class="sloganContainer">Fortifying Every Transaction, Securing Every Moment.</h1>
 
         <div class="buttonsContainer">
-            <a href="/crdFrdDtcn.html" class="crfd buttons">
+            <a href="{{ url_for('static', filename='cdFrdDtc_Style.css') }}">Credit Card Fraud Detection</a>
                 <span>Credit Card Fraud Detection</span>
             </a>
 
-            <a href="/OnlPymntFrdDtctn.html" class="opfd buttons">
+            <a href="{{ url_for('static', filename='OnlPymntFrdDtcn.css') }}" class="opfd buttons">
                 <span>Online Payment Fraud Detection</span>
             </a>
         </div> 
