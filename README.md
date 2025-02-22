@@ -75,7 +75,7 @@ bash Copy python app.py
 5. Create Pull Request
 
 ## License
-[MIT LICENSE](https://github.com/riya-py/EFraudSaver/blob/main/LICENSE)
+This project is licensed under the MIT License - see the [MIT LICENSE](https://github.com/riya-py/EFraudSaver/blob/main/LICENSE) file for details.
 
 ## Contact
 
