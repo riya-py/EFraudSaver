@@ -1,0 +1,149 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #12527c;
+    --button-color: #013455;
+    --button-background-color: #56b0ff00;
+    --button-hover-color: #05314e;
+}
+
+/* Nav Styles */
+nav {
+    width: 100%;
+    height: max(10vh, 60px);
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(20px, 5vw, 72px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(16px, 2vw, 26px);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #7fb6db;
+}
+
+/* Main Content */
+main {
+    background-image: linear-gradient(to bottom, #063852f6 10%, #3f90c73b), url(./images/Image.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Slogan Styles */
+.sloganContainer {
+    width: min(90%, 1055px);
+    text-align: center;
+}
+
+main h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    font-size: clamp(32px, 5vw, 70px);
+    line-height: 1.2;
+}
+
+/* Button Container */
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    gap: clamp(20px, 5vw, 200px);
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+/* Button Styles */
+.buttons {
+    height: clamp(80px, 10vh, 108px);
+    width: min(90%, 348px);
+    background-color: var(--button-background-color);
+    text-decoration: none;
+    border: 4px solid var(--button-color);
+    border-radius: 18px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--button-color);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: clamp(18px, 2.5vw, 28px);
+    transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+    padding: 15px;
+}
+
+.buttons:hover {
+    background-color: var(--button-hover-color);
+    color: white;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    nav ul {
+        justify-content: center;
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .buttonsContainer {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .buttons {
+        width: min(90%, 300px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        height: auto;
+        padding: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    main {
+        padding: 40px 15px;
+    }
+
+    .buttons {
+        height: 70px;
+        font-size: 16px;
+    }
+
+    .sloganContainer {
+        margin: 20px 0;
+    }
+}

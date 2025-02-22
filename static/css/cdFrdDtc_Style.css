@@ -1,0 +1,177 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --input_box_color: rgb(159, 206, 242);
+    --primary-color: #12527c;
+}
+
+/* Nav Styles */
+nav {
+    width: 100%;
+    height: max(10vh, 60px);
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(20px, 5vw, 72px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(16px, 2vw, 26px);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #7fb6db;
+}
+
+/* Main Content */
+main {
+    background-image: linear-gradient(to bottom, #0637529c 20%, #146eaa8c), url(./images//Blue\ Simple\ Keep\ Calm\ Desktop\ Wallpaper.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.mainContents {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* Form Styles */
+.inputContainer {
+    width: min(90%, 600px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: clamp(15px, 3vw, 70px);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputMSG {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: clamp(16px, 2vw, 20px);
+}
+
+.inputBox {
+    height: clamp(36px, 5vh, 42px);
+    border-radius: 10px;
+    border: 3px solid var(--input_box_color);
+    background-color: transparent;
+    padding: 0 10px;
+    outline: none;
+    color: white;
+    font-size: clamp(16px, 2vw, 20px);
+    width: 100%;
+}
+
+.inputBox::placeholder {
+    color: var(--input_box_color);
+}
+
+.inputBox:focus {
+    border-color: rgb(70, 170, 195);
+}
+
+.inputBox:focus::placeholder {
+    color: rgb(70, 170, 195);
+}
+
+button {
+    place-self: center;
+    height: clamp(35px, 5vh, 45px);
+    width: min(80%, 300px);
+    border-radius: 7px;
+    border: none;
+    background-color: white;
+    color: var(--primary-color);
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+button:hover {
+    color: white;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.btnClicked {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    nav ul {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .inputContainer {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        height: auto;
+        padding: 10px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    .mainContents {
+        padding: 10px;
+    }
+}

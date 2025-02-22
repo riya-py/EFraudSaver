@@ -1,0 +1,240 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #12527c;
+    --input-box-color: rgb(159, 206, 242);
+    --input-focus-color: rgb(70, 170, 195);
+    --radio-border-color: #5dbeff;
+    --radio-hover-color: #81d8fa;
+}
+
+/* Nav Styles */
+nav {
+    width: 100%;
+    height: max(10vh, 60px);
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(20px, 5vw, 72px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(16px, 2vw, 26px);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+nav a:hover {
+    color: #7fb6db;
+}
+
+/* Main Content */
+main {
+    background-image: linear-gradient(to bottom, #0637529c 20%, #146eaa8c), url(./images//Blue\ Simple\ Keep\ Calm\ Desktop\ Wallpaper.png);
+    background-size: cover;
+    background-position: center;
+    min-height: 90vh;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.title {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(24px, 4vw, 36px);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Form Container */
+.mainContents {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.inputContainer {
+    width: min(90%, 600px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border: 4px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: clamp(15px, 3vw, 70px);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields */
+.input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inputMSG {
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: clamp(16px, 2vw, 20px);
+}
+
+.inputBox {
+    height: clamp(36px, 5vh, 42px);
+    border-radius: 10px;
+    border: 3px solid var(--input-box-color);
+    background-color: transparent;
+    padding: 0 10px;
+    outline: none;
+    color: white;
+    font-size: clamp(16px, 2vw, 20px);
+    width: 100%;
+}
+
+.inputBox::placeholder {
+    color: var(--input-box-color);
+}
+
+.inputBox:focus {
+    border-color: var(--input-focus-color);
+}
+
+.inputBox:focus::placeholder {
+    color: var(--input-focus-color);
+}
+
+/* Radio Buttons */
+.radioText {
+    color: var(--input-box-color);
+    font-size: clamp(14px, 1.8vw, 18px);
+}
+
+.radioBox {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media (min-width: 480px) {
+    .radioBox {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.optn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.radioSelect[type="radio"] {
+    appearance: none;
+    width: clamp(16px, 2.5vw, 20px);
+    height: clamp(16px, 2.5vw, 20px);
+    border: 3px solid var(--radio-border-color);
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+input[type="radio"]:hover {
+    border-color: var(--radio-hover-color);
+    background-color: #0637529c;
+}
+
+input[type="radio"]:checked::before {
+    content: "";
+    width: 60%;
+    height: 60%;
+    background: var(--radio-hover-color);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+/* Submit Button */
+button {
+    place-self: center;
+    height: clamp(35px, 5vh, 45px);
+    width: min(80%, 300px);
+    border-radius: 7px;
+    border: none;
+    background-color: white;
+    color: var(--primary-color);
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    margin-top: 10px;
+}
+
+button:hover {
+    color: white;
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.btnClicked {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    nav ul {
+        justify-content: center;
+        width: 100%;
+        margin-right: 0;
+    }
+    
+    .inputContainer {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        height: auto;
+        padding: 10px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 0;
+    }
+    
+    .mainContents {
+        padding: 10px;
+    }
+    
+    .radioBox {
+        gap: 10px;
+    }
+}

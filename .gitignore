@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/git add --all
+git commit -m "Finalizing project push"
+git push origin main
+
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+
+# Logs
+*.log
+*.log.*
+
+# Caches
+__pycache__/
+.cache/
+
+# Images
+*.png
+*.jpg
+
+# Data
+*.xlsx
+*.csv
+
+# Model files
+*.pkl
+*.h5
+*.model
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Local development settings
+instance/
+.env
+.env.local
+.env.*.local
+
+# System Files
+.DS_Store
+Thumbs.db

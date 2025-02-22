@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/OnlPymntFrdDtctn.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Payment Fraud Detection</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div class="mainContents">
+            <h1 class="title">Online Payment Fraud Detection</h1>
+            <form class="inputContainer" action="">
+                <div class="input1 input">
+                    <label for="TrnAmn" class="inputMSG">Transaction Amount:</label>
+                    <input type="number" id="TrnAmn" placeholder="Enter The Amount of Transaction" class="inputBox">
+                </div>
+
+                <div class="input2 input">
+                    <label for="oldBalance" class="inputMSG">Old Balance:</label>
+                    <input type="text" id="oldBalance" placeholder="Enter The Old Account Balance of The Transaction" class="inputBox">
+                </div>
+
+                <div class="input3 input">
+                    <label for="newAccBalance" class="inputMSG">New Balance:</label>
+                    <input type="number" id="newAccBalance" placeholder="Enter The Account Balance After The Transaction" class="inputBox">
+                </div>
+
+                <div class="input4 input">
+                    <p class="inputMSG">Select Type of Transaction:</p>
+                    <div class="radioBox">
+                        <div class="optn">
+                            <input type="radio" id="cshOut" class="radioSelect" name="inputType">
+                            <label for="cshOut" class="inputMSG radioText">Cash Out</label>
+                        </div>
+                        
+                        <div class="optn">
+                            <input type="radio" id="transfer" class="radioSelect" name="inputType">
+                            <label for="transfer" class="inputMSG radioText">Transfer</label>
+                        </div>
+                        
+                        <div class="optn">
+                            <input type="radio" id="online" class="radioSelect" name="inputType">
+                            <label for="online" class="inputMSG radioText">Online</label>
+                        </div>
+                        
+                        <div class="optn">
+                            <input type="radio" id="payment" class="radioSelect" name="inputType">
+                            <label for="payment" class="inputMSG radioText">Payment</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="formSubmit" type="submit">SUBMIT</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
