@@ -2,14 +2,21 @@ from flask import Flask, render_template, request, jsonify
 import joblib
 import numpy as np
 
+
 app = Flask(__name__, static_url_path='/static')
 
 # Load both models at startup
 try:
     credit_card_model = joblib.load('./models/credit_card_model.pkl')
+except Exception as e:
+    print(f"Error loading credit card fraud model: {e}")
+    credit_card_model = None
+
+try:
     online_payment_model = joblib.load('./models/online_payment_model.pkl')
 except Exception as e:
-    print(f"Error loading models: {e}")
+    print(f"Error loading online payment fraud model: {e}")
+    online_payment_model = None
 
 @app.route('/')
 def home():
@@ -17,11 +24,11 @@ def home():
 
 @app.route('/crdtfrdtcn')
 def credit_fraud():
-    return render_template('crdtfrdtcn.html')
+    return render_template('crdFrdDtcn.html')
 
 @app.route('/onlnpymntfrddtcn')
 def online_fraud():
-    return render_template('onlnpymntfrddtcn.html')
+    return render_template('OnlPymntFrdDtctn.html')
 
 @app.route('/result')
 def result():
@@ -29,6 +36,9 @@ def result():
 
 @app.route('/predict_credit_fraud', methods=['POST'])
 def predict_credit_fraud():
+    if credit_card_model is None:
+        return jsonify({'error': 'Credit card fraud detection model not loaded properly'})
+
     try:
         # Get form data
         amount = float(request.form['TrnAmn'])
@@ -48,7 +58,7 @@ def predict_credit_fraud():
 
         # Prepare features for prediction
         features = np.array([[amount, city_tier, trans_hour, age]])
-        
+
         # Make prediction
         prediction = credit_card_model.predict(features)[0]
         probability = credit_card_model.predict_proba(features)[0][1]
@@ -61,20 +71,23 @@ def predict_credit_fraud():
         }
 
         return render_template('result.html', 
-                             result=result, 
-                             transaction_type='Credit Card',
-                             details={
-                                 'Amount': f'${amount:,.2f}',
-                                 'City Tier': city_tier,
-                                 'Transaction Hour': f'{trans_hour:02d}:00',
-                                 'Age': age
-                             })
+                               result=result, 
+                               transaction_type='Credit Card',
+                               details={
+                                   'Amount': f'${amount:,.2f}',
+                                   'City Tier': city_tier,
+                                   'Transaction Hour': f'{trans_hour:02d}:00',
+                                   'Age': age
+                               })
 
     except Exception as e:
         return jsonify({'error': str(e)})
 
 @app.route('/predict_online_fraud', methods=['POST'])
 def predict_online_fraud():
+    if online_payment_model is None:
+        return jsonify({'error': 'Online payment fraud detection model not loaded properly'})
+
     try:
         # Get form data
         amount = float(request.form['TrnAmn'])
@@ -95,13 +108,7 @@ def predict_online_fraud():
         transaction_ratio = amount / old_balance if old_balance != 0 else 0
 
         # Prepare features for prediction
-        features = np.array([[
-            amount,
-            old_balance,
-            new_balance,
-            transaction_diff,
-            transaction_ratio
-        ]])
+        features = np.array([[amount, old_balance, new_balance, transaction_diff, transaction_ratio]])
 
         # Make prediction
         prediction = online_payment_model.predict(features)[0]
@@ -115,14 +122,14 @@ def predict_online_fraud():
         }
 
         return render_template('result.html', 
-                             result=result, 
-                             transaction_type='Online Payment',
-                             details={
-                                 'Amount': f'${amount:,.2f}',
-                                 'Old Balance': f'${old_balance:,.2f}',
-                                 'New Balance': f'${new_balance:,.2f}',
-                                 'Transaction Type': transaction_type.capitalize()
-                             })
+                               result=result, 
+                               transaction_type='Online Payment',
+                               details={
+                                   'Amount': f'${amount:,.2f}',
+                                   'Old Balance': f'${old_balance:,.2f}',
+                                   'New Balance': f'${new_balance:,.2f}',
+                                   'Transaction Type': transaction_type.capitalize()
+                               })
 
     except Exception as e:
         return jsonify({'error': str(e)})
