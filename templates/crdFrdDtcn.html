@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='cdFrdDtc_Style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cdFrdDtc_Style.css') }}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Credit Card Fraud Detection</title>
@@ -11,45 +11,41 @@
 <body>
     <nav>
         <ul>
-            <li><a href="/index.html">Home</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
         </ul>
     </nav>
+
     <main>
         <div class="mainContents">
-
             <h1 class="title">Credit Card Fraud Detection</h1>
 
-            <form class="inputContainer" action="{{ url_for('models', filename='credit_card_model.pkl') }}" method="POST">
-
+            <form class="inputContainer" action="{{ url_for('predict_credit_fraud') }}" method="POST">
                 <div class="input1 input">
                     <label for="TrnAmn" class="inputMSG">Transaction Amount:</label>
-                    <input type="number" id="TrnAmn" placeholder="Enter Transaction Amount" class="inputBox">
+                    <input type="number" id="TrnAmn" name="TrnAmn" placeholder="Enter Transaction Amount" class="inputBox" required>
                 </div>
-
+            
                 <div class="input2 input">
-                    <label for="CtyPopln" class="inputMSG">City tier:</label>
-                    <input type="text" id="CtyPopln" placeholder="Enter Your City tier(1, 2 or 3)"
-                        class="inputBox">
+                    <label for="Ctypopltn" class="inputMSG">City tier:</label>
+                    <input type="number" id="Ctypopltn" name="Ctypopltn" placeholder="Enter Your City tier (1, 2, or 3)" class="inputBox" required>
                 </div>
-
+            
                 <div class="input3 input">
                     <label for="TrnHr" class="inputMSG">Transaction Hour:</label>
-                    <input type="number" id="TrnHr" placeholder="Enter Hour Of Transaction" class="inputBox">
+                    <input type="number" id="TrnHr" name="TrnHr" placeholder="Enter Hour Of Transaction (0-23)" class="inputBox" required>
                 </div>
-
+            
                 <div class="input4 input">
                     <label for="Age" class="inputMSG">Age:</label>
-                    <input type="text" id="Age" placeholder="Enter Age" class="inputBox">
+                    <input type="number" id="Age" name="Age" placeholder="Enter Age (18-100)" class="inputBox" required>
                 </div>
-
-                <button class="formSubmit" type="submit">SUBMIT</button>
             
+                <button class="formSubmit" type="submit">SUBMIT</button>
             </form>
-
         </div>
-
     </main>
-    <script src="/static/js/creditCardFraud.js"></script>
+
+    <script src="{{ url_for('static', filename='js/credit_card_fraud.js') }}"></script>
 </body>
 
 </html>

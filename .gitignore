@@ -36,6 +36,9 @@ ENV/
 __pycache__/
 .cache/
 
+# models
+*.pkl
+
 # Images
 *.png
 *.jpg
