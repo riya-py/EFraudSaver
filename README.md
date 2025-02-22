@@ -37,14 +37,14 @@ The application will be available at `http://localhost:5000`
 ```
 project_root/
 │   ├── models/             # ML model related code
-│   │   ├── credit_card_model.pkl
-│   │   └── online_payment_model.pkl
-│
+│       ├── credit_card_model.pkl
+│       └── online_payment_model.pkl
+
 ├── static/                 # Static files
 │   ├── css/
 │   │   ├── cdFrdDtc_style.css
-        ├── indexStyle.css
-        ├── OnlpymntFrdDtcn.css
+|   |   ├── indexStyle.css
+|   |   ├── OnlpymntFrdDtcn.css
 │   │   └── result.css
 │   ├── images/                
 │
@@ -53,7 +53,7 @@ project_root/
 │   ├── index.html
 |   ├── OnlPymntFrdDtcn.html
 │   └── result.html
-
+|
 │ # Jupyter notebooks for analysis
 |── credit_card_fraud_detection.ipynb 
 |── online_payment_fraud_detection.ipynb 
