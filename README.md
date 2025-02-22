@@ -15,7 +15,7 @@ EFraudSaver is a machine learning-powered System that detects potential fraud in
 
 ```bash
 Copygit clone https://github.com/yourusername/efraudsaver.git
-cd fraudsaver
+cd efraudsaver
 ```
 
 2. Create a virtual environment:
@@ -79,4 +79,4 @@ This project is licensed under the MIT License - see the [MIT LICENSE](https://g
 twitter- [@riya_pyy](https://twitter.com/riya_pyy)
 gmail- riya.rk006@gmail.com
 
-Project Link: [https://github.com/riya-py/Fraudsaver](https://github.com/riya-py/Fraudsaver)
+Project Link: [https://github.com/riya-py/EFraudSaver](https://github.com/riya-py/EFraudSaver)
