@@ -33,6 +33,37 @@ Copypip install -r requirements.txt
 
 The application will be available at `http://localhost:5000`
 
+## Project Structure 
+```
+project_root/
+│   ├── models/             # ML model related code
+│   │   ├── credit_card_model.pkl
+│   │   └── online_payment_model.pkl
+│
+├── static/                 # Static files
+│   ├── css/
+│   │   ├── cdFrdDtc_style.css
+        ├── indexStyle.css
+        ├── OnlpymntFrdDtcn.css
+│   │   └── result.css
+│   ├── images/                
+│
+├── templates/             # HTML templates
+│   ├── crdDrdDtcn.html         
+│   ├── index.html
+|   ├── OnlPymntFrdDtcn.html
+│   └── result.html
+
+│ # Jupyter notebooks for analysis
+|── credit_card_fraud_detection.ipynb 
+|── online_payment_fraud_detection.ipynb 
+│
+├── app.py              # Main application file
+├── requirements.txt    # Project dependencies
+├── README.md          # Project documentation
+└── .gitignore         # Git ignore file
+```
+
 
 ## Model Training
 Run Jupyter Notebooks:
@@ -42,9 +73,11 @@ online_payment_detection.ipynb
 
 ## Notebooks will generate:
 
+#### models
 credit_card_model.pkl
 online_payment_model.pkl
 
+#### and
 Running the Application
 bash Copy python app.py
 
@@ -76,7 +109,7 @@ This project is licensed under the MIT License - see the [MIT LICENSE](https://g
 
 ## Contact
 
-twitter- [@riya_pyy](https://twitter.com/riya_pyy)
+X- [@riya_pyy](https://twitter.com/riya_pyy)
 gmail- riya.rk006@gmail.com
 
 Project Link: [https://github.com/riya-py/EFraudSaver](https://github.com/riya-py/EFraudSaver)
