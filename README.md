@@ -1,6 +1,6 @@
-# FraudSaver: Fraud Detection System
+# EFraudSaver: Fraud Detection System
 
-FraudSaver is a machine learning-powered System that detects potential fraud in credit card and online payment transactions.
+EFraudSaver is a machine learning-powered System that detects potential fraud in credit card and online payment transactions.
 
 ## Features
 
@@ -14,7 +14,7 @@ FraudSaver is a machine learning-powered System that detects potential fraud in 
 1. Clone the repository:
 
 ```bash
-Copygit clone https://github.com/yourusername/fraudsaver.git
+Copygit clone https://github.com/yourusername/efraudsaver.git
 cd fraudsaver
 ```
 
@@ -33,9 +33,6 @@ Copypip install -r requirements.txt
 
 The application will be available at `http://localhost:5000`
 
-
-creditcard.csv for Credit Card Fraud
-onlinepayment.csv for Online Payment Fraud
 
 ## Model Training
 Run Jupyter Notebooks:
