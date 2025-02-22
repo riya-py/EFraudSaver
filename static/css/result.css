@@ -44,7 +44,7 @@ nav a:hover {
 
 /* Main Content */
 main {
-    background-image: linear-gradient(to bottom, #0637529c 20%, #146eaa8c), url(./images//Blue\ Simple\ Keep\ Calm\ Desktop\ Wallpaper.png);
+    background-image: linear-gradient(to bottom, #0637529c 20%, #146eaa8c), url(../images//Blue\ Simple\ Keep\ Calm\ Desktop\ Wallpaper.png);
     background-size: cover;
     background-position: center;
     min-height: 90vh;

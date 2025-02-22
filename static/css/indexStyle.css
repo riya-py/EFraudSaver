@@ -44,7 +44,7 @@ nav a:hover {
 
 /* Main Content */
 main {
-    background-image: linear-gradient(to bottom, #063852f6 10%, #3f90c73b), url(./images/Image.png);
+    background-image: linear-gradient(to bottom, #063852f6 10%, #3f90c73b), url(../images/Image.png);
     background-size: cover;
     background-position: center;
     min-height: 90vh;
