@@ -39,7 +39,7 @@ project_root/
 │   ├── models/             # ML model related code
 │       ├── credit_card_model.pkl
 │       └── online_payment_model.pkl
-
+|
 ├── static/                 # Static files
 │   ├── css/
 │   │   ├── cdFrdDtc_style.css

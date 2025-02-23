@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const amount = parseFloat(value);
             return amount > 0 ? '' : 'Amount must be greater than 0';
         },
-        PostalCode: (value) => {
+        ZipCode: (value) => {  // Changed from PostalCode to ZipCode
             // Remove any whitespace
             const code = value.toString().trim();
             

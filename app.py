@@ -8,6 +8,8 @@ app = Flask(__name__, static_url_path='/static')
 # Load both models at startup
 try:
     credit_card_model = joblib.load('./models/credit_card_model.pkl')
+    print("Model type:", type(credit_card_model)) 
+    print("Model attributes:", dir(credit_card_model))  
 except Exception as e:
     print(f"Error loading credit card fraud model: {e}")
     credit_card_model = None
@@ -42,7 +44,7 @@ def predict_credit_fraud():
     try:
         # Get form data
         amount = float(request.form['TrnAmn'])
-        zip_code = request.form['ZipCode']  # Changed from city_tier
+        zip_code = request.form['ZipCode']  # This matches our new form field name
         trans_hour = int(request.form['TrnHr'])
         age = int(request.form['Age'])
 
