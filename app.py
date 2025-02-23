@@ -42,22 +42,30 @@ def predict_credit_fraud():
     try:
         # Get form data
         amount = float(request.form['TrnAmn'])
-        city_tier = int(request.form['Ctypopltn'])
+        zip_code = request.form['ZipCode']  # Changed from city_tier
         trans_hour = int(request.form['TrnHr'])
         age = int(request.form['Age'])
 
         # Validate inputs
         if not (0 <= trans_hour <= 23):
             return jsonify({'error': 'Transaction hour must be between 0 and 23'})
-        if not (1 <= city_tier <= 3):
-            return jsonify({'error': 'City tier must be 1, 2, or 3'})
+        
+        # Validate ZIP/PIN code
+        # Remove any whitespace and convert to string
+        zip_code = str(zip_code).strip()
+        # Check for either US ZIP (5 digits) or Indian PIN (6 digits)
+        if not (len(zip_code) == 5 or len(zip_code) == 6) or not zip_code.isdigit():
+            return jsonify({'error': 'Please enter a valid 5-digit US ZIP code or 6-digit Indian PIN code'})
+        
+        zip_code = int(zip_code)  # Convert to integer for model
+        
         if amount <= 0:
             return jsonify({'error': 'Amount must be greater than 0'})
         if not (18 <= age <= 100):
             return jsonify({'error': 'Age must be between 18 and 100'})
 
         # Prepare features for prediction
-        features = np.array([[amount, city_tier, trans_hour, age]])
+        features = np.array([[amount, zip_code, trans_hour, age]])
 
         # Make prediction
         prediction = credit_card_model.predict(features)[0]
@@ -71,14 +79,14 @@ def predict_credit_fraud():
         }
 
         return render_template('result.html', 
-                               result=result, 
-                               transaction_type='Credit Card',
-                               details={
-                                   'Amount': f'${amount:,.2f}',
-                                   'City Tier': city_tier,
-                                   'Transaction Hour': f'{trans_hour:02d}:00',
-                                   'Age': age
-                               })
+                             result=result, 
+                             transaction_type='Credit Card',
+                             details={
+                                 'Amount': f'${amount:,.2f}',
+                                 'Postal Code': zip_code,
+                                 'Transaction Hour': f'{trans_hour:02d}:00',
+                                 'Age': age
+                             })
 
     except Exception as e:
         return jsonify({'error': str(e)})

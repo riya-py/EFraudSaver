@@ -9,9 +9,34 @@ document.addEventListener('DOMContentLoaded', () => {
             const amount = parseFloat(value);
             return amount > 0 ? '' : 'Amount must be greater than 0';
         },
-        CtyPopln: (value) => {
-            const tier = parseInt(value);
-            return [1, 2, 3].includes(tier) ? '' : 'City tier must be 1, 2, or 3';
+        PostalCode: (value) => {
+            // Remove any whitespace
+            const code = value.toString().trim();
+            
+            // Validate US ZIP code (5 digits)
+            if (/^\d{5}$/.test(code)) {
+                const zip = parseInt(code);
+                const firstThree = Math.floor(zip / 100);
+                
+                // Valid US ZIP ranges
+                const usRanges = [
+                    [1, 339], [342, 399], [400, 599],
+                    [600, 799], [800, 999]
+                ];
+                
+                return usRanges.some(([min, max]) => 
+                    firstThree >= min && firstThree <= max
+                ) ? '' : 'Invalid US ZIP code';
+            }
+            
+            // Validate Indian PIN code (6 digits)
+            if (/^\d{6}$/.test(code)) {
+                const firstDigit = parseInt(code[0]);
+                // Indian PIN codes start from 1 and first digit can't be 0
+                return firstDigit > 0 ? '' : 'Invalid Indian PIN code';
+            }
+            
+            return 'Please enter a valid 5 or 6-digit PIN code';
         },
         TrnHr: (value) => {
             const hour = parseInt(value);
