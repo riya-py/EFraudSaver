@@ -9,7 +9,11 @@ app = Flask(__name__, static_url_path='/static')
 try:
     credit_card_model = joblib.load('./models/credit_card_model.pkl')
     print("Model type:", type(credit_card_model)) 
-    print("Model attributes:", dir(credit_card_model))  
+    print("Model attributes:", dir(credit_card_model)) 
+
+    if isinstance(credit_card_model, dict):
+        credit_card_model = credit_card_model.get("model", None)  
+         
 except Exception as e:
     print(f"Error loading credit card fraud model: {e}")
     credit_card_model = None
