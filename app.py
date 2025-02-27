@@ -8,8 +8,6 @@ app = Flask(__name__, static_url_path='/static')
 # Load both models at startup
 try:
     credit_card_model = joblib.load('./models/credit_card_model.pkl')
-    print("Model type:", type(credit_card_model)) 
-    print("Model attributes:", dir(credit_card_model)) 
 
     if isinstance(credit_card_model, dict):
         credit_card_model = credit_card_model.get("model", None)  
@@ -20,6 +18,10 @@ except Exception as e:
 
 try:
     online_payment_model = joblib.load('./models/online_payment_model.pkl')
+
+    if isinstance(online_payment_model, dict):
+        online_payment_model = online_payment_model.get("model", None)  
+
 except Exception as e:
     print(f"Error loading online payment fraud model: {e}")
     online_payment_model = None
@@ -122,7 +124,7 @@ def predict_online_fraud():
         transaction_ratio = amount / old_balance if old_balance != 0 else 0
 
         # Prepare features for prediction
-        features = np.array([[amount, old_balance, new_balance, transaction_diff, transaction_ratio]])
+        features = np.array([[amount, old_balance, new_balance, transaction_diff]])
 
         # Make prediction
         prediction = online_payment_model.predict(features)[0]
