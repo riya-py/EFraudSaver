@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/result.css') }}">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transaction Analysis Result</title>
 </head>
+
 <body>
-    <nav>
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-        </ul>
-    </nav>
     <main>
         <div class="mainContents">
             <h1 class="title">Transaction Analysis Result</h1>
-            
+
             <div class="resultContainer">
                 <div class="resultHeader">
                     <h2 class="transactionType">{{ transaction_type }} Transaction</h2>
@@ -24,16 +22,20 @@
                 <div class="resultBox">
                     <div class="predictionSection">
                         <h3 class="predictionTitle">Prediction</h3>
-                        <div class="predictionResult {{ 'fraudulent' if result.prediction == 'Fraudulent' else 'legitimate' }}">
-                            {{ result.prediction }}
-                        </div>
-                        <div class="confidenceLevel">
-                            Confidence: <span class="{{ 'high-confidence' if result.confidence == 'High' else 'low-confidence' }}">
-                                {{ result.confidence }}
-                            </span>
-                        </div>
-                        <div class="probabilityInfo">
-                            Fraud Probability: {{ "%.1f"|format(result.probability * 100) }}%
+                        <div>
+                            <div
+                                class="predictionResult {{ 'fraudulent' if result.prediction == 'Fraudulent' else 'legitimate' }}">
+                                {{ result.prediction }}
+                            </div>
+                            <div class="confidenceLevel">
+                                Confidence: <span
+                                    class="{{ 'high-confidence' if result.confidence == 'High' else 'low-confidence' }}">
+                                    {{ result.confidence }}
+                                </span>
+                            </div>
+                            <div class="probabilityInfo">
+                                Fraud Probability: {{ "%.1f"|format(result.probability * 100) }}%
+                            </div>
                         </div>
                     </div>
 
@@ -51,7 +53,8 @@
                 </div>
 
                 <div class="actionButtons">
-                    <a href="{{ '/crdtfrdtcn' if transaction_type == 'Credit Card' else '/onlnpymntfrddtcn' }}" class="button backButton">
+                    <a href="{{ '/crdtfrdtcn' if transaction_type == 'Credit Card' else '/onlnpymntfrddtcn' }}"
+                        class="button backButton">
                         New Analysis
                     </a>
                     <a href="/" class="button homeButton">
@@ -61,6 +64,8 @@
             </div>
         </div>
     </main>
-    <script src="/static/js/result.js"></script>
+    <script src="{{ url_for('static', filename='/static/js/result.js') }}"></script>
+
 </body>
+
 </html>
